@@ -3,17 +3,14 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
+import { RottenLogoComponent } from '../icons/rotten-logo/rotten-logo.component';
+
 import { TabsPageRoutingModule } from './tabs-routing.module';
 
 import { TabsPage } from './tabs.page';
 
 @NgModule({
-  imports: [
-    IonicModule,
-    CommonModule,
-    FormsModule,
-    TabsPageRoutingModule
-  ],
-  declarations: [TabsPage]
+  imports: [IonicModule, CommonModule, FormsModule, TabsPageRoutingModule],
+  declarations: [TabsPage, RottenLogoComponent],
 })
 export class TabsPageModule {}
