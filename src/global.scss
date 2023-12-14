@@ -25,9 +25,24 @@
 @import "@ionic/angular/css/text-transformation.css";
 @import "@ionic/angular/css/flex-utils.css";
 
+.profile {
+  margin: 5px;
+  padding: 5px;
+}
 .profilePicture {
   overflow: hidden; // Asegúrate de que cualquier parte de la imagen fuera del contenedor esté oculta
   max-height: 250px;
   width: 250px;
   border-radius: 100%;
+  border: gray solid 2px;
+}
+.center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  justify-items: center;
+}
+input {
+  outline: none; // Elimina el resaltado al enfocar
 }

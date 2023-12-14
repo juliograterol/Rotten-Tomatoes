@@ -24,6 +24,14 @@ const routes: Routes = [
     loadChildren: () =>
       import('./register/register.module').then((m) => m.RegisterPageModule),
   },
+  {
+    path: 'edit-profile',
+    loadChildren: () =>
+      import('./pages/profile/edit-profile/edit-profile.module').then(
+        (m) => m.EditProfilePageModule
+      ),
+    canActivate: [AuthGuard],
+  },
 ];
 @NgModule({
   imports: [

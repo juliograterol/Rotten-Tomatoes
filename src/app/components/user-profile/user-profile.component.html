@@ -1,19 +1,12 @@
-<div>
+<div class="center profile">
   <img
     class="profilePicture"
     [src]="userInfo?.profilePicture"
     class="profilePicture"
   />
   <p>
-    {{ userInfo?.fullName }}&nbsp;
-    <a>{{ "@" }}{{ userInfo?.username }}</a>
+    <b>{{ userInfo?.fullName }}</b>
+    &nbsp;<a>{{ "@" }}{{ userInfo?.username }}</a>
   </p>
-  <!--   
-    bio: ""
-    email: "julio@julio.com"
-    fullName: "Julio Graterol"
-    isCritic: false
-    profilePicture: ""
-    username: "juls" 
-  -->
+  <p>{{ userInfo?.bio }}</p>
 </div>
