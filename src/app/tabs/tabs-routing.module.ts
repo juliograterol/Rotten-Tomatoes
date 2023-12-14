@@ -34,6 +34,12 @@ const routes: Routes = [
             (m) => m.ProfilePageModule
           ),
       },
+
+      {
+        path: 'chats',
+        loadChildren: () =>
+          import('../pages/chats/chats.module').then((m) => m.ChatsPageModule),
+      },
       {
         path: '',
         redirectTo: '/tabs/discover',
