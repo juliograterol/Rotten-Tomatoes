@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import FetchApi from 'src/app/services/fetchapi.service';
 import { Storage } from '@ionic/storage-angular';
 import { Router } from '@angular/router';
@@ -8,7 +8,9 @@ import { Router } from '@angular/router';
   templateUrl: './user-profile.component.html',
   styleUrls: ['./user-profile.component.scss'],
 })
-export class UserProfileComponent implements OnInit {
+export class UserProfileComponent {
+  @Input() userId: any;
+
   userInfo: any; // Declarar una propiedad para almacenar los datos de userInfo
 
   constructor(
@@ -18,17 +20,18 @@ export class UserProfileComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.fetchMyUser();
+    // if (this.userId) {
+    this.fetchUser();
+    // }
   }
 
-  async fetchMyUser() {
+  async fetchUser() {
     const token = await this.storage.get('token');
-    const userId = await this.storage.get('userId');
-
+    // console.log(this.userId);
     const userInfo = await this.fetchApi.request(
       'GET',
       null,
-      `/user/profile/${userId}`,
+      `/user/profile/${this.userId}`,
       token
     );
 

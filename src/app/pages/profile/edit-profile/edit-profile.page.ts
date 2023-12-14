@@ -52,7 +52,7 @@ export class EditProfilePage implements OnInit {
         token
       );
       this.presentAlert('Cambios Guardados!', '', [{ text: 'OK' }]);
-      this.router.navigate(['tabs/tab4']);
+      this.router.navigate(['tabs/profile']);
     } catch (error) {
       console.log(error);
     }
