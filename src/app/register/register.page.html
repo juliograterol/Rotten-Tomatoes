@@ -10,4 +10,10 @@
       <ion-title size="large">register</ion-title>
     </ion-toolbar>
   </ion-header>
+  <form (ngSubmit)="register()" class="container">
+    <div class="center">
+      <button class="button" expand="full" type="submit">Crear Cuenta</button>
+      <p>Tienes cuenta? <a href="../login">Iniciar Sesión</a></p>
+    </div>
+  </form>
 </ion-content>
