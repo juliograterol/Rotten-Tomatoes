@@ -10,6 +10,16 @@
       <ion-title size="large">discover</ion-title>
     </ion-toolbar>
   </ion-header>
-
-  <app-explore-container name="Discover Page"></app-explore-container>
+  <!-- Movie Section -->
+  <div>
+    <h1>Movies</h1>
+    <media-row [allMedia]="moviesInfo" [mediaType]="'movie'"></media-row>
+    <button>View More...</button>
+  </div>
+  <!-- Tv Shows Section -->
+  <div>
+    <h1>TV Shows</h1>
+    <media-row [allMedia]="tvShowsInfo" [mediaType]="'tv'"></media-row>
+    <button>View More...</button>
+  </div>
 </ion-content>

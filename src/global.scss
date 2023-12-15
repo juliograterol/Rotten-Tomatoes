@@ -46,3 +46,25 @@
 input {
   outline: none; // Elimina el resaltado al enfocar
 }
+.poster {
+  height: 200px;
+  min-width: 133px;
+  border-radius: 25px;
+}
+.preview {
+  margin: 10px;
+  padding: 10px;
+}
+.media-row {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  overflow-y: auto;
+}
+button {
+  background-color: #016a70;
+  padding: 10px;
+  border-radius: 100px;
+  font-weight: bold;
+  height: min-content;
+}

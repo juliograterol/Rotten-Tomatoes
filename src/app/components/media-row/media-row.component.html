@@ -1,0 +1,5 @@
+<div *ngIf="allMedia" class="media-row">
+  <div *ngFor="let media of allMedia">
+    <app-media [media]="media" [type]="mediaType"></app-media>
+  </div>
+</div>
