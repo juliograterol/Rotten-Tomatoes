@@ -1,8 +1,18 @@
 <div class="center profile">
-  <img class="profilePicture" [src]="userInfo?.profilePicture" />
+  <div class="profile-view">
+    <img class="profilePicture" [src]="userInfo?.profilePicture" />
+  </div>
   <p>
     <b>{{ userInfo?.fullName }}</b>
     &nbsp;<a>{{ "@" }}{{ userInfo?.username }}</a>
+    <ng-container *ngIf="userInfo?.isCritic === true">
+      &nbsp;<ion-icon name="checkmark-circle" color="primary"></ion-icon>
+    </ng-container>
+  </p>
+  <p>
+    <ng-container *ngIf="userInfo?.isCritic === true">
+      &nbsp;<i>Official Critic</i>
+    </ng-container>
   </p>
   <p>{{ userInfo?.bio }}</p>
 </div>

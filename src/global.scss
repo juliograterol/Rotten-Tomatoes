@@ -92,3 +92,35 @@ button {
   font-weight: bold;
   height: min-content;
 }
+.search-bar {
+  background-color: #00000050;
+  border-radius: 100px;
+  padding: 10px;
+  margin: 5px;
+  color: #fff;
+  ion-icon {
+    --ion-color-primary: #fff;
+  }
+}
+.search-input {
+  background-color: transparent;
+  border: none;
+  min-width: 90%;
+  max-width: 100%;
+}
+ion-tab-bar,
+ion-toolbar {
+  color: #fff;
+  --ion-background-color: #016a70;
+  --ion-color-primary: #fff;
+  --ion-color-medium: #fff;
+  --ion-color-medium: #92949c;
+  --ion-color-medium-rgb: 146, 148, 156;
+  --ion-color-medium-contrast: #ffffff;
+  --ion-color-medium-contrast-rgb: 255, 255, 255;
+  --ion-color-medium-shade: #fff;
+  --ion-color-medium-tint: #fff;
+}
+.profile-view {
+  position: relative;
+}
