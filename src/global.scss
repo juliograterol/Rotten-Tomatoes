@@ -25,6 +25,10 @@
 @import "@ionic/angular/css/text-transformation.css";
 @import "@ionic/angular/css/flex-utils.css";
 
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&family=Poppins&display=swap");
+* {
+  font-family: "Montserrat", sans-serif; /* Cambia 'Montserrat' a 'Poppins' o cualquier otra fuente según sea necesario */
+}
 .profile {
   margin: 5px;
   padding: 5px;

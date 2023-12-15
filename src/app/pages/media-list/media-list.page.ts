@@ -37,4 +37,7 @@ export class MediaListPage implements OnInit {
     );
     this.media = media.data.fetchData.results;
   }
+  goBack() {
+    this.router.navigate(['tabs/discover']);
+  }
 }

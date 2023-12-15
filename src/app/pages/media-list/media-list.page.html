@@ -1,5 +1,11 @@
 <ion-header [translucent]="true">
   <ion-toolbar class="center">
+    <div class="media-row">
+      <button class="back" (click)="goBack()">
+        <ion-icon name="chevron-back-outline"></ion-icon>
+      </button>
+      <ion-title>All Movies</ion-title>
+    </div>
     <div class="search-bar">
       <ion-icon name="search"></ion-icon>
       <input class="search-input" />
@@ -8,5 +14,5 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <media-column [allMedia]="media" [mediaType]="'tv'"></media-column>
+  <media-column [allMedia]="media" [mediaType]="type"></media-column>
 </ion-content>
