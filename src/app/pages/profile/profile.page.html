@@ -3,11 +3,13 @@
     <ion-refresher-content></ion-refresher-content>
   </ion-refresher>
   <user-profile [userId]="myUserId"></user-profile>
-  <button
-    class="button center"
-    style="margin-bottom: 10px"
-    (click)="editProfile()"
-  >
-    Editar Perfil
-  </button>
+  <div class="center">
+    <button
+      class="button center"
+      style="margin-bottom: 10px"
+      (click)="editProfile()"
+    >
+      Editar Perfil
+    </button>
+  </div>
 </ion-content>
