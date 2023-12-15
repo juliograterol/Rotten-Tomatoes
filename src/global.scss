@@ -52,14 +52,25 @@ input {
   border-radius: 25px;
 }
 .preview {
-  margin: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
   padding: 10px;
 }
 .media-row {
-  align-items: center;
   display: flex;
   flex-direction: row;
   overflow-y: auto;
+}
+.media-segment {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: row;
+  overflow-y: auto;
+}
+.title {
+  font-weight: bold;
+  font-size: x-large;
 }
 button {
   background-color: #016a70;

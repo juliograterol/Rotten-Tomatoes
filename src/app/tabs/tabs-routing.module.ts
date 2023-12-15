@@ -14,19 +14,6 @@ const routes: Routes = [
             (m) => m.DiscoverPageModule
           ),
       },
-
-      {
-        path: 'movies',
-        loadChildren: () =>
-          import('../pages/movies/movies.module').then(
-            (m) => m.MoviesPageModule
-          ),
-      },
-      {
-        path: 'tv',
-        loadChildren: () =>
-          import('../pages/tv/tv.module').then((m) => m.TvPageModule),
-      },
       {
         path: 'profile',
         loadChildren: () =>

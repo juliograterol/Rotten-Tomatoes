@@ -22,7 +22,14 @@ export class DiscoverPage implements OnInit {
     this.fetchMovieDiscover();
     this.fetchTvDiscover();
   }
-
+  async redirectTo(media: string) {
+    if (media === 'movies') {
+      this.router.navigateByUrl('movies');
+    }
+    if (media === 'tv') {
+      this.router.navigateByUrl('tv');
+    }
+  }
   async fetchMovieDiscover() {
     const token = await this.storage.get('token');
     const userId = await this.storage.get('userId');

@@ -32,6 +32,18 @@ const routes: Routes = [
       ),
     canActivate: [AuthGuard],
   },
+  {
+    path: 'movies',
+    loadChildren: () =>
+      import('./pages/movies/movies.module').then((m) => m.MoviesPageModule),
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'tv',
+    loadChildren: () =>
+      import('./pages/tv/tv.module').then((m) => m.TvPageModule),
+    canActivate: [AuthGuard],
+  },
 ];
 @NgModule({
   imports: [

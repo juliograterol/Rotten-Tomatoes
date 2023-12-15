@@ -11,15 +11,15 @@
     </ion-toolbar>
   </ion-header>
   <!-- Movie Section -->
-  <div>
-    <h1>Movies</h1>
-    <media-row [allMedia]="moviesInfo" [mediaType]="'movie'"></media-row>
-    <button>View More...</button>
+  <div class="media-segment">
+    <p class="title">Movies</p>
+    <button (click)="redirectTo('movies')">View More...</button>
   </div>
+  <media-row [allMedia]="moviesInfo" [mediaType]="'movie'"></media-row>
   <!-- Tv Shows Section -->
-  <div>
-    <h1>TV Shows</h1>
-    <media-row [allMedia]="tvShowsInfo" [mediaType]="'tv'"></media-row>
-    <button>View More...</button>
+  <div class="media-segment">
+    <p class="title">TV Shows</p>
+    <button (click)="redirectTo('tv')">View More...</button>
   </div>
+  <media-row [allMedia]="tvShowsInfo" [mediaType]="'tv'"></media-row>
 </ion-content>
