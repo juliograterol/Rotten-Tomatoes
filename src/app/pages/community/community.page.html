@@ -1,9 +1,5 @@
 <ion-header [translucent]="true">
   <ion-toolbar class="center">
-    <div class="change-chat">
-      <button>Chats</button>
-      <button>Formus</button>
-    </div>
     <div class="search-bar">
       <ion-icon name="search"></ion-icon>
       <input
@@ -15,4 +11,11 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true"> </ion-content>
+<ion-content [fullscreen]="true">
+  <div class="change-chat"></div>
+  <div *ngIf="userList" class="media-column">
+    <div *ngFor="let user of userList">
+      <app-community-list [user]="user"></app-community-list>
+    </div>
+  </div>
+</ion-content>

@@ -27,14 +27,34 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Montserrat&family=Poppins&display=swap");
 * {
-  font-family: "Montserrat", sans-serif; /* Cambia 'Montserrat' a 'Poppins' o cualquier otra fuente según sea necesario */
+  font-family: "Montserrat", sans-serif;
+}
+.back {
+  background: none;
+  color: #016a70;
+  font-size: 18px; /* Tamaño de fuente */
+  padding: 10px;
 }
 .profile {
   margin: 5px;
   padding: 5px;
 }
+.commun-picture {
+  overflow: hidden;
+  max-height: 100px;
+  width: 100px;
+  border-radius: 100%;
+  border: gray solid 2px;
+}
+.community-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  border-bottom: gray solid 1px;
+  padding: 10px;
+}
 .profilePicture {
-  overflow: hidden; // Asegúrate de que cualquier parte de la imagen fuera del contenedor esté oculta
+  overflow: hidden;
   max-height: 250px;
   width: 250px;
   border-radius: 100%;

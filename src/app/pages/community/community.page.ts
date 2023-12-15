@@ -12,11 +12,12 @@ export class CommunityPage implements OnInit {
   userList: any[] = [];
   constructor(private fetchApi: FetchApi, private storage: Storage) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.fetchUsers();
+  }
 
   async onSearchChange(event: any) {
     this.searchText = event;
-    console.log(this.searchText);
     this.fetchUsers();
   }
   async fetchUsers() {
@@ -38,10 +39,10 @@ export class CommunityPage implements OnInit {
       );
       if (response && response.data && Array.isArray(response.data)) {
         this.userList = response.data; // Asigna la lista de usuarios a userList
-        console.log(this.userList);
       }
     } catch (error) {}
   }
+
   async fetchForums() {
     console.log('working forums search');
   }

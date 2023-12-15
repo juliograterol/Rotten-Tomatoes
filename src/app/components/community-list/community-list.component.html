@@ -1,0 +1,13 @@
+<div class="media-column center community-list">
+  <img class="commun-picture" [src]="user.profilePicture" />
+  <div class="center">
+    <div>
+      <b>{{ user.fullName }}</b>
+      <ng-container *ngIf="user.isCritic === true">
+        &nbsp;<ion-icon name="checkmark-circle" color="primary"></ion-icon>
+      </ng-container>
+      &nbsp;<a>{{ "@" }}{{ user.username }}</a>
+    </div>
+    <button (click)="gotToUser(user._id)">See Profile</button>
+  </div>
+</div>
