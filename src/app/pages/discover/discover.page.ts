@@ -22,13 +22,9 @@ export class DiscoverPage implements OnInit {
     this.fetchMovieDiscover();
     this.fetchTvDiscover();
   }
-  async redirectTo(media: string) {
-    if (media === 'movies') {
-      this.router.navigateByUrl('movies');
-    }
-    if (media === 'tv') {
-      this.router.navigateByUrl('tv');
-    }
+  async redirectTo(type: string) {
+    // this.router.navigateByUrl('media');
+    this.router.navigate(['media', type]);
   }
   async fetchMovieDiscover() {
     const token = await this.storage.get('token');
@@ -51,6 +47,5 @@ export class DiscoverPage implements OnInit {
       token
     );
     this.tvShowsInfo = media.data.fetchData.results;
-    console.log(this.tvShowsInfo);
   }
 }

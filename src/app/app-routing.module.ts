@@ -33,15 +33,11 @@ const routes: Routes = [
     canActivate: [AuthGuard],
   },
   {
-    path: 'movies',
+    path: 'media/:type',
     loadChildren: () =>
-      import('./pages/movies/movies.module').then((m) => m.MoviesPageModule),
-    canActivate: [AuthGuard],
-  },
-  {
-    path: 'tv',
-    loadChildren: () =>
-      import('./pages/tv/tv.module').then((m) => m.TvPageModule),
+      import('./pages/media-list/media-list.module').then(
+        (m) => m.MediaListPageModule
+      ),
     canActivate: [AuthGuard],
   },
 ];

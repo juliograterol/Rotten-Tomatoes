@@ -56,10 +56,23 @@ input {
   margin-right: 10px;
   padding: 10px;
 }
+.preview-list {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  -webkit-line-clamp: 3; /* Número de líneas que se mostrarán */
+  padding: 5px;
+}
+
 .media-row {
   display: flex;
   flex-direction: row;
   overflow-y: auto;
+}
+.media-column {
+  display: flex;
+  flex-direction: column;
+  overflow-x: auto;
 }
 .media-segment {
   display: flex;

@@ -1,0 +1,12 @@
+<div class="media-row preview" (click)="goToMedia()">
+  <img class="poster" [src]="preview.poster" />
+  <div class="preview">
+    <p>
+      <b>{{ preview.title }}</b>
+      <ng-container *ngIf="preview.original_title !== preview.title">
+        ({{ preview.original_title }})
+      </ng-container>
+    </p>
+    <p class="preview-list">{{ preview.overview }}</p>
+  </div>
+</div>

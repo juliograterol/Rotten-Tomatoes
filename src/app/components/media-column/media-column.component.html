@@ -1,0 +1,5 @@
+<div *ngIf="allMedia" class="media-column">
+  <div *ngFor="let media of allMedia">
+    <media-list-item [media]="media" [type]="mediaType"></media-list-item>
+  </div>
+</div>
