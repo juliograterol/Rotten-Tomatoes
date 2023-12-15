@@ -30,7 +30,6 @@ export class MediaListItemComponent implements OnInit {
     }
     this.preview.poster = `http://image.tmdb.org/t/p/w500${this.media.poster_path}`;
     this.preview.overview = this.media.overview;
-    console.log('preview ', this.preview);
   }
 
   goToMedia() {

@@ -25,7 +25,6 @@ export class MediaListPage implements OnInit {
 
   ngOnInit() {
     this.fetchMedia();
-    console.log(`${this.type}: `, this.media);
   }
   async fetchMedia() {
     const token = await this.storage.get('token');
@@ -37,6 +36,5 @@ export class MediaListPage implements OnInit {
       token
     );
     this.media = media.data.fetchData.results;
-    console.log(`${this.type} 2: `, this.media);
   }
 }

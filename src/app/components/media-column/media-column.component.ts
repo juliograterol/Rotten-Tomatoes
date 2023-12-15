@@ -10,8 +10,5 @@ export class MediaColumnComponent implements OnInit {
   @Input() mediaType: any;
   constructor() {}
 
-  ngOnInit() {
-    console.log('all media: ', this.allMedia);
-    console.log('media type: ', this.mediaType);
-  }
+  ngOnInit() {}
 }
