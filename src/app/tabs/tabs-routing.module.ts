@@ -21,11 +21,12 @@ const routes: Routes = [
             (m) => m.ProfilePageModule
           ),
       },
-
       {
-        path: 'chats',
+        path: 'community',
         loadChildren: () =>
-          import('../pages/chats/chats.module').then((m) => m.ChatsPageModule),
+          import('../pages/community/community.module').then(
+            (m) => m.CommunityPageModule
+          ),
       },
       {
         path: '',
