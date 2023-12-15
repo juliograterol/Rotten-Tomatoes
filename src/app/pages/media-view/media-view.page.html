@@ -1,0 +1,14 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>{{ media?.title }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="center media-info">
+    <img class="big-poster" [src]="poster" />
+    <h1><b>{{ media?.title }}</b></h1>
+    <p>{{ mediaDate }}</p>
+    <p>{{ media?.description }}</p>
+  </div>
+</ion-content>

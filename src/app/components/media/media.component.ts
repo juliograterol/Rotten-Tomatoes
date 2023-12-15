@@ -28,24 +28,10 @@ export class MediaComponent implements OnInit {
       this.preview.original_title = this.media.original_name;
     }
     this.preview.poster = `http://image.tmdb.org/t/p/w500${this.media.poster_path}`;
+    // console.log(this.media);
   }
 
   goToMedia() {
-    console.log(`got to ${this.type}!`);
-    console.log(this.media);
-  }
-
-  async fetchMedia() {
-    const token = await this.storage.get('token');
-    // const media = await this.fetchApi.request(
-    //   'GET',
-    //   null,
-    //   `/media/data/${this.mediaId}?mediaType=${this.mediaType}`,
-    //   token
-    // );
-    // this.mediaData = media.data.Media;
-    // this.media.poster = `http://image.tmdb.org/t/p/w500${this.mediaData.posterUrl}`;
-    // this.media.title = this.mediaData.title;
-    // console.log(media.data.Media);
+    this.router.navigate(['media-view', this.type, this.media.id]);
   }
 }

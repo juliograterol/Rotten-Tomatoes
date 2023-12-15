@@ -40,6 +40,14 @@ const routes: Routes = [
       ),
     canActivate: [AuthGuard],
   },
+  {
+    path: 'media-view/:type/:mediaId',
+    loadChildren: () =>
+      import('./pages/media-view/media-view.module').then(
+        (m) => m.MediaViewPageModule
+      ),
+    canActivate: [AuthGuard],
+  },
 ];
 @NgModule({
   imports: [

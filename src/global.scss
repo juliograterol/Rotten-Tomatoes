@@ -50,9 +50,17 @@
 input {
   outline: none; // Elimina el resaltado al enfocar
 }
+.media-info {
+  padding: 10px;
+}
 .poster {
   height: 200px;
   min-width: 133px;
+  border-radius: 25px;
+}
+.big-poster {
+  height: 300px;
+  min-width: 200px;
   border-radius: 25px;
 }
 .preview {
