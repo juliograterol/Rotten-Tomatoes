@@ -1,10 +1,7 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>{{ media?.title }}</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content [fullscreen]="true">
+  <button class="back" (click)="goBack()">
+    <ion-icon name="chevron-back-outline"></ion-icon>
+  </button>
   <div class="center media-info">
     <img class="big-poster" [src]="poster" />
     <h1><b>{{ media?.title }}</b></h1>

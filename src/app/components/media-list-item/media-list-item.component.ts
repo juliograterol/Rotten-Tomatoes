@@ -33,7 +33,6 @@ export class MediaListItemComponent implements OnInit {
   }
 
   goToMedia() {
-    console.log(`got to ${this.type}!`);
-    console.log(this.media);
+    this.router.navigate(['media-view', this.type, this.media.id]);
   }
 }

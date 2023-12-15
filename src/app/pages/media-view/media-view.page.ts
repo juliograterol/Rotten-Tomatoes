@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Storage } from '@ionic/storage-angular';
 import FetchApi from 'src/app/services/fetchapi.service';
 
@@ -17,7 +17,8 @@ export class MediaViewPage implements OnInit {
   constructor(
     private storage: Storage,
     private fetchApi: FetchApi,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
   ) {
     this.route.params.subscribe((params) => {
       this.type = params['type'];
@@ -28,7 +29,9 @@ export class MediaViewPage implements OnInit {
   ngOnInit() {
     this.fetchMedia();
   }
-
+  goBack() {
+    this.router.navigate(['media', this.type]);
+  }
   async fetchMedia() {
     const token = await this.storage.get('token');
     const media = await this.fetchApi.request(
