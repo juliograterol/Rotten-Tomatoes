@@ -28,7 +28,7 @@ export class SimilarMediaComponent implements OnInit {
       this.preview.title = this.media.name;
       this.preview.original_title = this.media.original_name;
     }
-    this.preview.poster = `http://image.tmdb.org/t/p/w500${this.media.poster_path}`;
+    this.preview.poster = `http://image.tmdb.org/t/p/original${this.media.poster_path}`;
   }
 
   goToMedia() {

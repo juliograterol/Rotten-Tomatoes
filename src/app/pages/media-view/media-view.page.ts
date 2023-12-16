@@ -43,7 +43,6 @@ export class MediaViewPage implements OnInit {
   }
   watchTrailer(youtubeLink: string) {
     window.open(youtubeLink, '_blank');
-
   }
   async fetchMedia() {
     const token = await this.storage.get('token');
@@ -77,7 +76,7 @@ export class MediaViewPage implements OnInit {
           'https://static.vecteezy.com/system/resources/thumbnails/008/442/086/small/illustration-of-human-icon-user-symbol-icon-modern-design-on-blank-background-free-vector.jpg';
       }
     }
-    this.poster = `http://image.tmdb.org/t/p/w500${this.media.posterUrl}`;
+    this.poster = `http://image.tmdb.org/t/p/original${this.media.posterUrl}`;
     const dateString = this.media.releaseDate;
     const date = new Date(dateString);
     this.mediaDate = date.toLocaleDateString();
