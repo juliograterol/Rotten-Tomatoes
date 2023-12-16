@@ -52,10 +52,24 @@ export class ProfileViewPage implements OnInit {
   async goToChat() {
     try {
       const myUserId = await this.storage.get('userId');
-      const members = [this.userId, myUserId];
-      this.router.navigate(['/chat', members]);
+      const token = await this.storage.get('token');
+      const data = {
+        members: [this.userId, myUserId],
+        chatId: null,
+        isGroup:false,
+        description: "individual chat"
+      }
+      console.log("la data es:", data)
+      const request = await this.fetchApi.request(
+        'POST',
+        data,
+        `/chat`,
+        token
+      );
+      console.log(request);
+      this.router.navigate(['chat', request.data.chat._id]);
     } catch (error) {
-      console.log('Error going to chat: ', error);
+      console.log('Chat Error: ', error);
     }
   }
 }

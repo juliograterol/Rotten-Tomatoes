@@ -1,18 +1,31 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>chat</ion-title>
+    <div class="media-row">
+      <button (click)="goBack()">
+        <ion-icon name="chevron-back-outline"></ion-icon>
+      </button>
+      <ion-title>Chat</ion-title>
+    </div>
   </ion-toolbar>
 </ion-header>
-<ion-footer>
+<ion-footer class="send-message">
   <div class="media-row">
     <textarea
       placeholder="Message..."
       class="input-review"
-      (ngModelChange)="onMessageChange($event)"
+      [(ngModel)]="message"
       rows="5"
     ></textarea>
-    <button class="back send"><ion-icon name="paper-plane"></ion-icon></button>
+    <button class="back send" (click)="sendMessage()">
+      <ion-icon name="paper-plane"></ion-icon>
+    </button>
   </div>
 </ion-footer>
 
-<ion-content [fullscreen]="true"> </ion-content>
+<ion-content [fullscreen]="true">
+  <div *ngIf="allMessages">
+    <div *ngFor="let message of allMessages">
+      <app-message [message]="message"></app-message>
+    </div>
+  </div>
+</ion-content>

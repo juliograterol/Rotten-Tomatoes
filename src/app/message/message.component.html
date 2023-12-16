@@ -1,0 +1,16 @@
+<div *ngIf="message">
+  <div class="media-row my-message" *ngIf="myMessage === true">
+    <div class="message-info">
+      <b>{{ message.senderId?.fullName }}</b>
+      <p>{{ message.content }}</p>
+    </div>
+    <img class="message-picture" [src]="message.senderId?.profilePicture" />
+  </div>
+  <div class="other-message-row other-message" *ngIf="myMessage === false">
+    <div class="message-info">
+      <b>{{ message.senderId?.fullName }}</b>
+      <p>{{ message.content }}</p>
+    </div>
+    <img class="message-picture" [src]="message.senderId?.profilePicture" />
+  </div>
+</div>

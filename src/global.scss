@@ -204,3 +204,44 @@ ion-toolbar {
 .forum-list {
   padding: 25px;
 }
+.message-info {
+  padding: 10px;
+  background-color: #fff;
+  border-radius: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: flex-start;
+  justify-items: start;
+  width: 100%;
+}
+.my-message,
+.other-message {
+  margin: 10px;
+  border-radius: 25px;
+  box-shadow: 5px 5px 20px 0px rgba(0, 0, 0, 0.25);
+  padding: 15px;
+}
+.my-message {
+  justify-content: flex-end;
+}
+.other-message {
+  justify-content: flex-start;
+}
+.other-message-row {
+  display: flex;
+  flex-direction: row-reverse;
+  overflow-y: auto;
+}
+.message-picture {
+  overflow: hidden;
+  max-height: 100px;
+  width: 100px;
+  border-radius: 100%;
+  border: gray solid 2px;
+  align-items: end;
+}
+.send-message {
+  z-index: 10;
+  background-color: #fff;
+}
