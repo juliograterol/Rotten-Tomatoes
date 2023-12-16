@@ -56,6 +56,12 @@ const routes: Routes = [
       ),
     canActivate: [AuthGuard],
   },
+  {
+    path: 'review/:mediaId',
+    loadChildren: () =>
+      import('./pages/review/review.module').then((m) => m.ReviewPageModule),
+    canActivate: [AuthGuard],
+  },
 ];
 @NgModule({
   imports: [

@@ -29,6 +29,25 @@
 * {
   font-family: "Montserrat", sans-serif;
 }
+.stars {
+  justify-content: space-evenly;
+  display: flex;
+  align-items: center;
+  justify-items: center;
+}
+.review {
+  border-top: gray solid 1px;
+  border-bottom: gray solid 1px;
+  padding: 10px;
+}
+.input-review {
+  background: none;
+  color: black;
+  width: 100%;
+  resize: none;
+  border: none;
+  outline: none; // Elimina el resaltado al enfocar
+}
 .back {
   background: none;
   color: #016a70;

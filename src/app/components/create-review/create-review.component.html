@@ -1,0 +1,34 @@
+<div class="review">
+  <textarea
+    placeholder="Write your review here..."
+    class="input-review"
+    [(ngModel)]="review.content"
+    (ngModelChange)="onReviewChange($event)"
+    rows="5"
+  ></textarea>
+  <ion-radio-group class="media-row stars" (ionChange)="handleChange($event)">
+    <div class="media-column center">
+      1
+      <ion-radio value="1" color="danger"></ion-radio>
+    </div>
+    <div class="media-column center">
+      2
+      <ion-radio value="2" color="danger"></ion-radio>
+    </div>
+    <div class="media-column center">
+      3
+      <ion-radio value="3" color="warning"></ion-radio>
+    </div>
+    <div class="media-column center">
+      4
+      <ion-radio value="4" color="warning"></ion-radio>
+    </div>
+    <div class="media-column center">
+      5
+      <ion-radio value="5" color="success"></ion-radio>
+    </div>
+  </ion-radio-group>
+  <div class="center">
+    <button style="margin-top: 10px" (click)="addReview()">Send Review!</button>
+  </div>
+</div>

@@ -14,6 +14,12 @@ export class MediaViewPage implements OnInit {
   media: any;
   poster: any;
   mediaDate: any;
+  review: { userId: any; mediaId: any; content: string; rating: any } = {
+    userId: '',
+    mediaId: '',
+    content: '',
+    rating: '',
+  };
   constructor(
     private storage: Storage,
     private fetchApi: FetchApi,
@@ -25,7 +31,6 @@ export class MediaViewPage implements OnInit {
       this.mediaId = params['mediaId'];
     });
   }
-
   ngOnInit() {
     this.fetchMedia();
   }
