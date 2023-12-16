@@ -1,0 +1,14 @@
+<div class="media-column center community-list">
+  <div class="center forum-list">
+    <h1>
+      <a>
+        <ion-icon name="tv" *ngIf="type === 'tv'"></ion-icon>
+        <ion-icon name="videocam" *ngIf="type === 'movies'"></ion-icon>
+      </a>
+      &nbsp;<b>{{ forum.name }}</b> &nbsp;<a
+        ><ion-icon name="people"></ion-icon
+      ></a>
+    </h1>
+    <button (click)="goToChat(forum.chatId)">Go Chat</button>
+  </div>
+</div>

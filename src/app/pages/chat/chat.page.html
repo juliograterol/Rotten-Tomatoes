@@ -1,0 +1,18 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>chat</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-footer>
+  <div class="media-row">
+    <textarea
+      placeholder="Message..."
+      class="input-review"
+      (ngModelChange)="onMessageChange($event)"
+      rows="5"
+    ></textarea>
+    <button class="back send"><ion-icon name="paper-plane"></ion-icon></button>
+  </div>
+</ion-footer>
+
+<ion-content [fullscreen]="true"> </ion-content>

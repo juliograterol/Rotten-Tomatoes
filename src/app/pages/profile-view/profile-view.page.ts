@@ -49,4 +49,13 @@ export class ProfileViewPage implements OnInit {
       console.log(userInfo.data);
     }
   }
+  async goToChat() {
+    try {
+      const myUserId = await this.storage.get('userId');
+      const members = [this.userId, myUserId];
+      this.router.navigate(['/chat', members]);
+    } catch (error) {
+      console.log('Error going to chat: ', error);
+    }
+  }
 }

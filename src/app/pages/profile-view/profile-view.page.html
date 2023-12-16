@@ -19,8 +19,12 @@
       </ng-container>
     </p>
     <p>{{ userInfo?.bio }}</p>
-    <button class="button center" style="margin-bottom: 10px">
-      Enviar Mensaje
+    <button
+      class="button center"
+      style="margin-bottom: 10px"
+      (click)="goToChat()"
+    >
+      Send Message
     </button>
   </div>
 </ion-content>

@@ -1,5 +1,22 @@
 <ion-header [translucent]="true">
   <ion-toolbar class="center">
+    <ion-segment value="users" (ionChange)="onSegmentChanged($event)">
+      <ion-segment-button value="users">
+        <ion-label>Users</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="movies">
+        <ion-label>Movie Forums</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="tvshows">
+        <ion-label>Tv Forums</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <!-- Users -->
+  <ng-container *ngIf="selectedSegment === 'users'">
     <div class="search-bar">
       <ion-icon name="search"></ion-icon>
       <input
@@ -8,14 +25,26 @@
         (ngModelChange)="onSearchChange($event)"
       />
     </div>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content [fullscreen]="true">
-  <div class="change-chat"></div>
-  <div *ngIf="userList" class="media-column">
-    <div *ngFor="let user of userList">
-      <app-community-list [user]="user"></app-community-list>
+    <div *ngIf="userList" class="media-column">
+      <div *ngFor="let user of userList">
+        <app-community-list [user]="user"></app-community-list>
+      </div>
     </div>
-  </div>
+  </ng-container>
+  <!-- Movie Forums -->
+  <ng-container *ngIf="selectedSegment === 'movies'">
+    <div *ngIf="forumMovieList" class="media-column">
+      <div *ngFor="let forumMovie of forumMovieList">
+        <app-forum-list [forum]="forumMovie" [type]="'movies'"></app-forum-list>
+      </div>
+    </div>
+  </ng-container>
+  <!-- Tv Shows -->
+  <ng-container *ngIf="selectedSegment === 'tvshows'">
+    <div *ngIf="forumTvList" class="media-column">
+      <div *ngFor="let forumTv of forumTvList">
+        <app-forum-list [forum]="forumTv" [type]="'tv'"></app-forum-list>
+      </div>
+    </div>
+  </ng-container>
 </ion-content>

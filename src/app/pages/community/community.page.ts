@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Storage } from '@ionic/storage-angular';
 import FetchApi from 'src/app/services/fetchapi.service';
+import { movieForums } from './forums';
+import { tvForums } from './forums';
 
 @Component({
   selector: 'app-community',
@@ -10,16 +12,25 @@ import FetchApi from 'src/app/services/fetchapi.service';
 export class CommunityPage implements OnInit {
   searchText: string = '';
   userList: any[] = [];
+  forumMovieList: any[] = [];
+  forumTvList: any[] = [];
+  selectedSegment: string = '';
   constructor(private fetchApi: FetchApi, private storage: Storage) {}
 
   ngOnInit() {
     this.fetchUsers();
+    this.forumMovieList = movieForums;
+    this.forumTvList = tvForums;
+  }
+  onSegmentChanged(event: CustomEvent) {
+    this.selectedSegment = event.detail.value;
   }
 
   async onSearchChange(event: any) {
     this.searchText = event;
     this.fetchUsers();
   }
+
   async fetchUsers() {
     try {
       const userId = await this.storage.get('userId');

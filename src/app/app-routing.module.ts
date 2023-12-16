@@ -62,6 +62,12 @@ const routes: Routes = [
       import('./pages/review/review.module').then((m) => m.ReviewPageModule),
     canActivate: [AuthGuard],
   },
+  {
+    path: 'chat/:param',
+    loadChildren: () =>
+      import('./pages/chat/chat.module').then((m) => m.ChatPageModule),
+    canActivate: [AuthGuard],
+  },
 ];
 @NgModule({
   imports: [
