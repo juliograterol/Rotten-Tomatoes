@@ -1,6 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Storage } from '@ionic/storage-angular';
 import FetchApi from 'src/app/services/fetchapi.service';
+import { AlertController } from '@ionic/angular';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'create-review',
@@ -9,21 +11,50 @@ import FetchApi from 'src/app/services/fetchapi.service';
 })
 export class CreateReviewComponent implements OnInit {
   @Input() mediaId: any;
+  @Input() mediaType: any;
   review: { userId: any; mediaId: any; content: string; rating: any } = {
     userId: '',
     mediaId: '',
     content: '',
     rating: '',
   };
-  constructor(private storage: Storage, private fetchApi: FetchApi) {}
+  constructor(
+    private storage: Storage,
+    private fetchApi: FetchApi,
+    private alertController: AlertController,
+    private router: Router
+  ) {}
 
   ngOnInit() {
     this.review.mediaId = this.mediaId;
   }
 
+  confirmReview() {
+    this.presentAlert(
+      'Are you sure to share this review?',
+      'This review cannot be changed.',
+      [
+        {
+          text: 'CANCEL',
+          role: 'cancel',
+          handler: () => {
+            console.log('Alert canceled');
+          },
+        },
+        {
+          text: 'SHARE',
+          role: 'confirm',
+          handler: () => {
+            this.addReview();
+            this.router.navigate(['media', this.mediaType]);
+          },
+        },
+      ]
+    );
+  }
+
   async addReview() {
     this.review.userId = await this.storage.get('userId');
-    console.log(this.review);
     if (this.review.content && this.review.rating) {
       try {
         const token = await this.storage.get('token');
@@ -36,6 +67,17 @@ export class CreateReviewComponent implements OnInit {
       } catch (error) {
         console.log('Error', error);
       }
+    } else {
+      this.presentAlert(
+        'Error',
+        'To make a review, it needs content and rating.',
+        [
+          {
+            text: 'OK',
+            role: 'cancel',
+          },
+        ]
+      );
     }
   }
   onReviewChange(event: any) {
@@ -44,8 +86,13 @@ export class CreateReviewComponent implements OnInit {
   handleChange(ev: any) {
     this.review.rating = ev.target.value;
   }
-  async test() {
-    this.review.userId = await this.storage.get('userId');
-    console.log(this.review);
+  async presentAlert(header: string, message: string, buttons: any[]) {
+    const alert = await this.alertController.create({
+      header: header,
+      message: message,
+      buttons: buttons,
+    });
+
+    await alert.present();
   }
 }

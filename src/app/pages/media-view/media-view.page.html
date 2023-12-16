@@ -32,7 +32,7 @@
         </div>
       </ng-container>
       <ng-container *ngIf="reviewed === false">
-        <create-review [mediaId]="mediaId"></create-review>
+        <create-review [mediaId]="mediaId" [mediaType]="type"></create-review>
       </ng-container>
     </div>
     <!-- My User Review -->

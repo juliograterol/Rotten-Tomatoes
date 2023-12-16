@@ -57,7 +57,7 @@ const routes: Routes = [
     canActivate: [AuthGuard],
   },
   {
-    path: 'review/:mediaId',
+    path: 'review',
     loadChildren: () =>
       import('./pages/review/review.module').then((m) => m.ReviewPageModule),
     canActivate: [AuthGuard],
