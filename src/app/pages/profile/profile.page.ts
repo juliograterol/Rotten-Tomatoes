@@ -23,7 +23,10 @@ export class ProfilePage implements OnInit {
       this.fetchMyUser();
     }, 2000);
   }
-
+  async logOut() {
+    await this.storage.remove('token');
+    this.router.navigate(['login']);
+  }
   async fetchMyUser() {
     // const userId = await this.storage.get('userId');
     this.myUserId = await this.storage.get('userId');

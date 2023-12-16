@@ -40,6 +40,9 @@ export class LoginPage {
     this.storage = await this.storage.create();
     // Recuperar el token si ya está almacenado
     this.token = await this.storage.get('token');
+    if (this.token) {
+      this.redirectTo(false);
+    }
   }
 
   async redirectTo(firstLogin: boolean) {
