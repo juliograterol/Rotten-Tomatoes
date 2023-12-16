@@ -41,6 +41,10 @@ export class MediaViewPage implements OnInit {
   goBack() {
     this.router.navigate(['media', this.type]);
   }
+  watchTrailer(youtubeLink: string) {
+    window.open(youtubeLink, '_blank');
+
+  }
   async fetchMedia() {
     const token = await this.storage.get('token');
     const userId = await this.storage.get('userId');
@@ -52,7 +56,7 @@ export class MediaViewPage implements OnInit {
     );
     this.media = media.data.Media;
     this.similarMedia = media.data.similar.results;
-    console.log(this.similarMedia);
+    console.log(media);
     //allReviews
     this.allReviews = media.data.reviews;
     //myReview

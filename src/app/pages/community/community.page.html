@@ -1,6 +1,10 @@
 <ion-header [translucent]="true">
   <ion-toolbar class="center">
-    <ion-segment value="users" (ionChange)="onSegmentChanged($event)">
+    <ion-segment
+      value="users"
+      (ionChange)="onSegmentChanged($event)"
+      [(ngModel)]="selectedSegment"
+    >
       <ion-segment-button value="users">
         <ion-label>Users</ion-label>
       </ion-segment-button>

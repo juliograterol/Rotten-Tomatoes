@@ -12,6 +12,10 @@
         <b>About</b>
         {{ media?.description }}
       </p>
+      <h2 (click)="watchTrailer(media?.trailerUrl)">
+        Watch Trailer now:
+        <ion-icon name="logo-youtube" color="danger"></ion-icon>
+      </h2>
     </div>
     <!-- Similar -->
     <div style="background-color: white">

@@ -1,5 +1,5 @@
 <ion-header [translucent]="true">
-  <ion-toolbar class="center">
+  <ion-toolbar class="center" id="top">
     <div class="media-row">
       <button (click)="goBack()">
         <ion-icon name="chevron-back-outline"></ion-icon>
@@ -11,14 +11,47 @@
         <ion-title>All Tv Shows</ion-title>
       </ng-container>
     </div>
-    <div class="search-bar">
+    <!-- <div class="search-bar">
       <ion-icon name="search"></ion-icon>
       <input class="search-input" />
-    </div>
+    </div> -->
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
+<ion-content [fullscreen]="true" #content>
+  <ion-list>
+    <ion-item>
+      <ion-select
+        aria-label="Genders"
+        placeholder="Genders"
+        [multiple]="true"
+        *ngIf="type === 'movie'"
+        [(ngModel)]="selectedGenders"
+        (ionChange)="handleGenderSelection()"
+      >
+        <div *ngFor="let gender of movieGenders">
+          <ion-select-option [value]="gender.id"
+            >{{gender.name}}</ion-select-option
+          >
+        </div>
+      </ion-select>
+      <ion-select
+        aria-label="Genders"
+        placeholder="Genders"
+        [multiple]="true"
+        *ngIf="type === 'tv'"
+        [(ngModel)]="selectedGenders"
+        (ionChange)="handleGenderSelection()"
+      >
+        <div *ngFor="let gender of tvGenders">
+          <ion-select-option [value]="gender.id"
+            >{{gender.name}}</ion-select-option
+          >
+        </div>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+
   <media-column [allMedia]="media" [mediaType]="type"></media-column>
   <div class="media-row pagination">
     <button (click)="previousPage()">

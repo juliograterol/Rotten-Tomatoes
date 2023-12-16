@@ -14,7 +14,7 @@ export class CommunityPage implements OnInit {
   userList: any[] = [];
   forumMovieList: any[] = [];
   forumTvList: any[] = [];
-  selectedSegment: string = '';
+  selectedSegment: string = 'users';
   constructor(private fetchApi: FetchApi, private storage: Storage) {}
 
   ngOnInit() {
