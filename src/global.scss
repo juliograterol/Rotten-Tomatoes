@@ -36,6 +36,7 @@
   justify-items: center;
 }
 .review {
+  background-color: white;
   border-top: gray solid 1px;
   border-bottom: gray solid 1px;
   padding: 10px;
@@ -92,6 +93,10 @@ input {
 .media-info {
   padding: 10px;
 }
+.gradient,
+.media-info {
+  background-image: linear-gradient(to bottom, transparent, white);
+}
 .poster {
   height: 200px;
   min-width: 133px;
@@ -101,6 +106,13 @@ input {
   height: 300px;
   min-width: 200px;
   border-radius: 25px;
+}
+.bg-poster {
+  filter: blur(50px);
+  position: absolute;
+  width: 200%;
+  height: 100%;
+  z-index: -10;
 }
 .preview {
   margin-left: 10px;
@@ -114,7 +126,6 @@ input {
   -webkit-line-clamp: 3; /* Número de líneas que se mostrarán */
   padding: 5px;
 }
-
 .media-row {
   display: flex;
   flex-direction: row;

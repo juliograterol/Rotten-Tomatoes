@@ -14,6 +14,8 @@ export class MediaViewPage implements OnInit {
   media: any;
   poster: any;
   mediaDate: any;
+  reviewed: boolean = false;
+  myUser: any;
   review: { userId: any; mediaId: any; content: string; rating: any } = {
     userId: '',
     mediaId: '',
@@ -39,16 +41,36 @@ export class MediaViewPage implements OnInit {
   }
   async fetchMedia() {
     const token = await this.storage.get('token');
+    const userId = await this.storage.get('userId');
     const media = await this.fetchApi.request(
       'GET',
       null,
-      `/media/data/${this.mediaId}?mediaType=${this.type}`,
+      `/media/data/${this.mediaId}?mediaType=${this.type}&userId=${userId}`,
       token
     );
     this.media = media.data.Media;
-    this.poster = `http://image.tmdb.org/t/p/w500${this.media.posterUrl}`;
-    const dateString = this.media.releaseDate;
-    const date = new Date(dateString);
-    this.mediaDate = date.toLocaleDateString();
+    if (media.data.myReview) {
+      this.review = media.data.myReview;
+      this.myUser = this.review.userId;
+      this.reviewed = true;
+      console.log(this.review);
+    } else {
+      const userInfo = await this.fetchApi.request(
+        'GET',
+        null,
+        `/user/profile/${userId}`,
+        token
+      );
+      this.myUser = userInfo.data;
+      if (this.myUser.profilePicture === '') {
+        this.myUser.profilePicture =
+          'https://static.vecteezy.com/system/resources/thumbnails/008/442/086/small/illustration-of-human-icon-user-symbol-icon-modern-design-on-blank-background-free-vector.jpg';
+      }
+      console.log(media);
+      this.poster = `http://image.tmdb.org/t/p/w500${this.media.posterUrl}`;
+      const dateString = this.media.releaseDate;
+      const date = new Date(dateString);
+      this.mediaDate = date.toLocaleDateString();
+    }
   }
 }

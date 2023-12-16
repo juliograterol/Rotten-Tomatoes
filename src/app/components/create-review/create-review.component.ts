@@ -22,15 +22,20 @@ export class CreateReviewComponent implements OnInit {
   }
 
   async addReview() {
+    this.review.userId = await this.storage.get('userId');
+    console.log(this.review);
     if (this.review.content && this.review.rating) {
-      const token = await this.storage.get('token');
-      this.review.userId = await this.storage.get('userId');
-      const review = await this.fetchApi.request(
-        'POST',
-        this.review,
-        `/review/`,
-        token
-      );
+      try {
+        const token = await this.storage.get('token');
+        const review = await this.fetchApi.request(
+          'POST',
+          this.review,
+          `/review/`,
+          token
+        );
+      } catch (error) {
+        console.log('Error', error);
+      }
     }
   }
   onReviewChange(event: any) {

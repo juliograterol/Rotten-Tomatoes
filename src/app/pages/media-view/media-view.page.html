@@ -2,11 +2,32 @@
   <button class="back" (click)="goBack()">
     <ion-icon name="chevron-back-outline"></ion-icon>
   </button>
-  <div class="center media-info">
-    <img class="big-poster" [src]="poster" />
-    <h1><b>{{ media?.title }}</b></h1>
-    <p>{{ mediaDate }}</p>
-    <p>{{ media?.description }}</p>
+  <div class="gradient">
+    <div class="center media-info">
+      <img class="bg-poster" [src]="poster" />
+      <img class="big-poster" [src]="poster" />
+      <h1><b>{{ media?.title }}</b></h1>
+      <p>{{ mediaDate }}</p>
+      <p>{{ media?.description }}</p>
+    </div>
+    <div class="review">
+      <div class="center">
+        <img class="commun-picture" [src]="myUser?.profilePicture" />
+        <div>
+          <b>{{ myUser?.fullName }}</b>
+          <ng-container *ngIf="myUser?.isCritic === true">
+            &nbsp;<ion-icon name="checkmark-circle" color="primary"></ion-icon>
+          </ng-container>
+          &nbsp;<a>{{ "@" }}{{ myUser?.username }}</a>
+        </div>
+      </div>
+      <ng-container *ngIf="reviewed === true">
+        <p>{{ review.content }}</p>
+        <ion-icon name="star"></ion-icon>
+      </ng-container>
+      <ng-container *ngIf="reviewed === false">
+        <create-review [mediaId]="mediaId"></create-review>
+      </ng-container>
+    </div>
   </div>
-  <create-review [mediaId]="mediaId"></create-review>
 </ion-content>
