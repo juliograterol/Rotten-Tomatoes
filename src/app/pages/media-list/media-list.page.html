@@ -20,4 +20,13 @@
 
 <ion-content [fullscreen]="true">
   <media-column [allMedia]="media" [mediaType]="type"></media-column>
+  <div class="media-row pagination">
+    <button (click)="previousPage()">
+      <ion-icon name="chevron-back-outline"></ion-icon>
+    </button>
+    <h1>{{ page }}</h1>
+    <button (click)="nextPage()">
+      <ion-icon name="chevron-forward-outline"></ion-icon>
+    </button>
+  </div>
 </ion-content>

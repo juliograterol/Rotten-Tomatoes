@@ -11,6 +11,8 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class MediaListPage implements OnInit {
   media: any[] = [];
+  page: number = 1;
+  total_pages: number = 1;
   type: string = '';
   constructor(
     private fetchApi: FetchApi,
@@ -32,12 +34,26 @@ export class MediaListPage implements OnInit {
     const media = await this.fetchApi.request(
       'GET',
       null,
-      `/media/discover?mediaType=${this.type}&userId=${userId}`,
+      `/media/discover?page=${this.page}&mediaType=${this.type}&userId=${userId}`,
       token
     );
     this.media = media.data.fetchData.results;
+    this.total_pages = media.data.fetchData.total_pages;
+    console.log(media);
   }
   goBack() {
     this.router.navigate(['tabs/discover']);
+  }
+  nextPage() {
+    if (this.page < this.total_pages) {
+      this.page += 1;
+      this.fetchMedia();
+    }
+  }
+  previousPage() {
+    if (this.page > 1) {
+      this.page -= 1;
+      this.fetchMedia();
+    }
   }
 }

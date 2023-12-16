@@ -52,13 +52,11 @@ export class MediaViewPage implements OnInit {
     this.media = media.data.Media;
     //allReviews
     this.allReviews = media.data.reviews;
-    console.log(media.data.reviews);
     //myReview
     if (media.data.myReview) {
       this.review = media.data.myReview;
       this.myUser = this.review.userId;
       this.reviewed = true;
-      console.log(this.review);
     } else {
       const userInfo = await this.fetchApi.request(
         'GET',
@@ -71,12 +69,11 @@ export class MediaViewPage implements OnInit {
         this.myUser.profilePicture =
           'https://static.vecteezy.com/system/resources/thumbnails/008/442/086/small/illustration-of-human-icon-user-symbol-icon-modern-design-on-blank-background-free-vector.jpg';
       }
-      console.log(media);
-      this.poster = `http://image.tmdb.org/t/p/w500${this.media.posterUrl}`;
-      const dateString = this.media.releaseDate;
-      const date = new Date(dateString);
-      this.mediaDate = date.toLocaleDateString();
     }
+    this.poster = `http://image.tmdb.org/t/p/w500${this.media.posterUrl}`;
+    const dateString = this.media.releaseDate;
+    const date = new Date(dateString);
+    this.mediaDate = date.toLocaleDateString();
   }
   getStarArray(rating: any): any[] {
     return Array.from({ length: rating }, (_, index) => index);
