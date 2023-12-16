@@ -1,0 +1,5 @@
+<div *ngIf="allSimilar" class="media-row">
+  <div *ngFor="let similar of allSimilar">
+    <similar-media [media]="similar" [type]="mediaType"></similar-media>
+  </div>
+</div>

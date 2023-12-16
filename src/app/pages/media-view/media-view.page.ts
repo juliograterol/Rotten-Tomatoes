@@ -17,6 +17,7 @@ export class MediaViewPage implements OnInit {
   reviewed: boolean = false;
   myUser: any;
   allReviews: any[] = [];
+  similarMedia: any[] = [];
   review: { userId: any; mediaId: any; content: string; rating: any } = {
     userId: '',
     mediaId: '',
@@ -50,6 +51,8 @@ export class MediaViewPage implements OnInit {
       token
     );
     this.media = media.data.Media;
+    this.similarMedia = media.data.similar.results;
+    console.log(this.similarMedia);
     //allReviews
     this.allReviews = media.data.reviews;
     //myReview

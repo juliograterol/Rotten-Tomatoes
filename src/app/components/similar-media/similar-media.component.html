@@ -1,0 +1,9 @@
+<div class="center preview" (click)="goToMedia()">
+  <img class="poster" [src]="preview.poster" />
+  <p>
+    <b>{{ preview.title }}</b>
+    <ng-container *ngIf="preview.original_title !== preview.title">
+      ({{ preview.original_title }})
+    </ng-container>
+  </p>
+</div>

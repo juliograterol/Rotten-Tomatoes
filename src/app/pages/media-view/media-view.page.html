@@ -13,6 +13,14 @@
         {{ media?.description }}
       </p>
     </div>
+    <!-- Similar -->
+    <div style="background-color: white">
+      <div class="center">
+        <h2><b>Similar</b></h2>
+      </div>
+      <all-similar [allSimilar]="similarMedia" [mediaType]="type"></all-similar>
+    </div>
+    <!-- Similar -->
     <!-- My User Review -->
     <div class="review">
       <div class="center">
