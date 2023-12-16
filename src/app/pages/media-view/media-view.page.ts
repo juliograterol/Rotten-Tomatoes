@@ -16,6 +16,7 @@ export class MediaViewPage implements OnInit {
   mediaDate: any;
   reviewed: boolean = false;
   myUser: any;
+  allReviews: any[] = [];
   review: { userId: any; mediaId: any; content: string; rating: any } = {
     userId: '',
     mediaId: '',
@@ -49,6 +50,10 @@ export class MediaViewPage implements OnInit {
       token
     );
     this.media = media.data.Media;
+    //allReviews
+    this.allReviews = media.data.reviews;
+    console.log(media.data.reviews);
+    //myReview
     if (media.data.myReview) {
       this.review = media.data.myReview;
       this.myUser = this.review.userId;
@@ -73,7 +78,7 @@ export class MediaViewPage implements OnInit {
       this.mediaDate = date.toLocaleDateString();
     }
   }
-  getStarArray(): any[] {
-    return Array.from({ length: this.review.rating }, (_, index) => index);
+  getStarArray(rating: any): any[] {
+    return Array.from({ length: rating }, (_, index) => index);
   }
 }

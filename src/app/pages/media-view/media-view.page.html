@@ -10,6 +10,7 @@
       <p>{{ mediaDate }}</p>
       <p>{{ media?.description }}</p>
     </div>
+    <!-- My User Review -->
     <div class="review">
       <div class="center">
         <img class="commun-picture" [src]="myUser?.profilePicture" />
@@ -24,12 +25,55 @@
       <ng-container *ngIf="reviewed === true">
         <p>{{ review.content }}</p>
         <div class="rating center">
-          <ion-icon *ngFor="let _ of getStarArray()" name="star"></ion-icon>
+          <ion-icon
+            *ngFor="let _ of getStarArray(review.rating)"
+            name="star"
+          ></ion-icon>
         </div>
       </ng-container>
       <ng-container *ngIf="reviewed === false">
         <create-review [mediaId]="mediaId"></create-review>
       </ng-container>
     </div>
+    <!-- My User Review -->
+    <!-- Other Reviews -->
+    <ng-container *ngFor="let other of allReviews">
+      <ng-container *ngIf="other.userId?._id !== myUser?._id">
+        <div class="review">
+          <div class="center">
+            <ng-container *ngIf="other.userId?.profilePicture === ''">
+              <img
+                class="commun-picture"
+                [src]="'https://static.vecteezy.com/system/resources/thumbnails/008/442/086/small/illustration-of-human-icon-user-symbol-icon-modern-design-on-blank-background-free-vector.jpg'"
+              />
+            </ng-container>
+            <ng-container *ngIf="other.userId?.profilePicture !== ''">
+              <img
+                class="commun-picture"
+                [src]="other.userId?.profilePicture"
+              />
+            </ng-container>
+            <div>
+              <b>{{ other.userId?.fullName }}</b>
+              <ng-container *ngIf="other.userId?.isCritic === true">
+                &nbsp;<ion-icon
+                  name="checkmark-circle"
+                  color="primary"
+                ></ion-icon>
+              </ng-container>
+              &nbsp;<a>{{ "@" }}{{ other.userId?.username }}</a>
+            </div>
+          </div>
+          <p>{{ other.content }}</p>
+          <div class="rating center">
+            <ion-icon
+              *ngFor="let _ of getStarArray(other.rating)"
+              name="star"
+            ></ion-icon>
+          </div>
+        </div>
+      </ng-container>
+    </ng-container>
+    <!-- Other Reviews -->
   </div>
 </ion-content>
