@@ -73,4 +73,7 @@ export class MediaViewPage implements OnInit {
       this.mediaDate = date.toLocaleDateString();
     }
   }
+  getStarArray(): any[] {
+    return Array.from({ length: this.review.rating }, (_, index) => index);
+  }
 }

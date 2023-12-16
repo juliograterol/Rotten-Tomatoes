@@ -186,3 +186,11 @@ ion-toolbar {
 .profile-view {
   position: relative;
 }
+.rating {
+  display: flex;
+  flex-direction: row;
+  ion-icon {
+    margin: 10px;
+    color: gold;
+  }
+}

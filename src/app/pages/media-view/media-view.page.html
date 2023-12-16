@@ -23,7 +23,9 @@
       </div>
       <ng-container *ngIf="reviewed === true">
         <p>{{ review.content }}</p>
-        <ion-icon name="star"></ion-icon>
+        <div class="rating center">
+          <ion-icon *ngFor="let _ of getStarArray()" name="star"></ion-icon>
+        </div>
       </ng-container>
       <ng-container *ngIf="reviewed === false">
         <create-review [mediaId]="mediaId"></create-review>
