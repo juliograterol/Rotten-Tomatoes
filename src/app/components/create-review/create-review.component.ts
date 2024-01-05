@@ -46,7 +46,20 @@ export class CreateReviewComponent implements OnInit {
           role: 'confirm',
           handler: () => {
             this.addReview();
-            this.router.navigate(['media', this.mediaType]);
+            this.presentAlert(
+              'Reviewd Shared!',
+              'Now you can continue to share your opinions with other media!',
+              [
+                {
+                  text: 'OK',
+                  role: 'confirm',
+                  handler: () => {
+                    console.log('Alert canceled');
+                    this.router.navigate(['tabs/discover']);
+                  },
+                },
+              ]
+            );
           },
         },
       ]

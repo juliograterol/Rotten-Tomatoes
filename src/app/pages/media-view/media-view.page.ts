@@ -18,6 +18,7 @@ export class MediaViewPage implements OnInit {
   myUser: any;
   allReviews: any[] = [];
   similarMedia: any[] = [];
+  mediaPopularity: any;
   review: { userId: any; mediaId: any; content: string; rating: any } = {
     userId: '',
     mediaId: '',
@@ -55,6 +56,7 @@ export class MediaViewPage implements OnInit {
     );
     this.media = media.data.Media;
     this.similarMedia = media.data.similar.results;
+    this.mediaPopularity = (media.data.popularity * 100).toFixed(0);
     console.log(media);
     //allReviews
     this.allReviews = media.data.reviews;

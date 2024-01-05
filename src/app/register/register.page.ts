@@ -4,6 +4,7 @@ import { AlertController } from '@ionic/angular';
 import { Platform } from '@ionic/angular';
 import { Storage } from '@ionic/storage-angular';
 import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-register',
   templateUrl: './register.page.html',
@@ -39,23 +40,6 @@ export class RegisterPage {
   async register() {
     try {
       // Aquí debes hacer la llamada a la API para el registro del usuario.
-      let userBio;
-      if (!this.userData.bio) {
-        userBio = '';
-      } else {
-        userBio = this.userData.bio;
-      }
-      const response = await this.apiService.request(
-        'POST',
-        {
-          fullName: this.userData.fullName,
-          username: this.userData.user,
-          email: this.userData.email,
-          password: this.userData.password,
-          bio: userBio,
-        },
-        '/auth/register'
-      );
       if (
         !this.userData.fullName ||
         !this.userData.email ||
@@ -64,13 +48,33 @@ export class RegisterPage {
       ) {
         this.presentAlert(
           'Error',
-          'No se pudo registrar el usuario. Verifica tus datos e inténtalo nuevamente.',
+          'Debe llenar todos los campos para registrarse.',
+          'OK'
+        );
+      } else {
+        const response = await this.apiService.request(
+          'POST',
+          {
+            fullName: this.userData.fullName,
+            username: this.userData.user,
+            email: this.userData.email,
+            password: this.userData.password,
+          },
+          '/auth/register'
+        );
+        console.log('Respuesta del servidor:', response);
+        this.presentAlert(
+          'Felicidades!',
+          'El usuario ha sido registrado exitosamente.',
           'OK'
         );
       }
-
-      console.log('Respuesta del servidor:', response);
     } catch (error) {
+      this.presentAlert(
+        'Error',
+        'No se pudo registrar el usuario. Verifica tus datos e inténtalo nuevamente.',
+        'OK'
+      );
       console.error('Error al realizar la solicitud:', error);
     }
   }
